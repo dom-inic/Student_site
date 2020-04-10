@@ -11,5 +11,6 @@ urlpatterns =[
     path('new_search/',views.new_search,name='new_search'),
     path('special/',views.special,name='special'),
     path('logout/', views.user_logout, name='logout'),
+    path('notes/', views.notes, name='notes'),
     
 ]

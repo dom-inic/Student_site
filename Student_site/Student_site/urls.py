@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url,include
 from megapp import views
+from learning_log import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('megapp.urls')),
+    path('',include('learning_log.urls')),
+    
     
 ]

@@ -11,6 +11,10 @@ from bs4 import BeautifulSoup
 from requests.compat import quote_plus
 from . import models
 from django.core.exceptions import PermissionDenied
+# pdf generation modules
+# import io
+# from django.http import FileResponse
+# from reportlab.pdfgen import canvas
 
 
 # Create your views here.
@@ -70,7 +74,7 @@ BASE_URL = 'https://kenya.craigslist.org/search/?query={}'
 BASE_IMAGE_URL = 'https://images.craigslist.org/{}_300x300.jpg'
 def new_search(request):
     search = request.POST.get('search')
-    models.Search.objects.create(search = search)
+    models.Search.objects.create(search=search)
     final_url = BASE_URL.format(quote_plus(search))
     response = requests.get(final_url)
     data= response.text
@@ -106,4 +110,16 @@ def new_search(request):
         'final_posting':final_posting,
     }
     return render(request,'megapp/my_search.html',to_frontend)
+
+def notes(request):
+    # install reportlab to generate pdf
+    # buffer = io.BytesIO()
+    # p = canvas.Canvas(buffer)
+    # p.drawString(100, 100, "university of Nairobi computer science.")
+    # p.showPage()
+    # p.save()
+    # buffer.seek(0)
+    # return FileResponse(buffer, as_attachment=True, filename='uoncomputerscience.pdf')
+    return render(request,'notes.html')
+
  

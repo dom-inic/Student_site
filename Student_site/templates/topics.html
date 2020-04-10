@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% block content %}
+	<title>topics</title>
+	<style type="text/css">
+		ul {
+    		list-style-type: none;
+    		margin: 0;
+    		padding: 0;
+			}
+	</style>
+</head>
+<body>
+	<h2> Topics </h2>
+	<h1> hellow user welcome and create your own topics and entries</h1>
+	{% if topics %}
+	
+	<ul>
+		{% for topic in topics %}
+		<li>{{ topic }}</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+	<p> no topics have been added yet</p>
+	{% endif %}
+		
+	
+		
+
+	{% endblock content %}
+</body>
+</html>
